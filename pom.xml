@@ -107,6 +107,7 @@
 					<version>2.22.1</version>
 				</plugin>
 
+				<!-- webapp-runner plugin -->
 				<plugin>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>3.2.2</version>
