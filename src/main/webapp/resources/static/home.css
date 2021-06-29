@@ -1,0 +1,127 @@
+.heading {
+    color: #DA0037;
+    text-align: center;
+    display: inline-block;
+  }
+  body {
+    background-color: rgba(10, 10, 10, 0.3);
+    margin: 0px;
+  }
+  .header{
+      background-color: #171717;
+  }
+  input {
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    width: 30px;
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 4px;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+
+  p {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .player1 {
+    background-color: #DA0037;
+  }
+
+  .player2 {
+    background-color: #17B794;
+  }
+
+  .undo {
+    background-color: transparent;
+  }
+
+  .button {
+    width: auto;
+    display: none;
+    margin: 0 auto;
+    padding: 6px 13px;
+    border-radius: 3px;
+  }
+
+  .logout_button{
+    float: right;
+    margin-right: 30px;
+    margin-top: 25px;
+    padding: 6px 13px;
+    background-color:#DA0037;
+    border-color: rgba(255,255,255,1);
+    border-radius: 3px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .level_button {
+    margin: 20px;
+    padding: 4px 8px;
+  }
+
+  .modal {
+    display: block;
+    position: fixed; 
+    z-index: 1;
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+  }
+
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .container{
+      background-color: #DDDDDD;
+      margin-left: auto;
+      margin-right: auto;
+      width: 24%;
+      padding-top: 1px;
+      margin-top: 30px;
+      padding-bottom: 30px;
+      border-radius: 20px;
+  }
