@@ -4,7 +4,7 @@ async function HTTPRequest(method, url, jsonValue) {
   const response = await new Promise((resolve, reject) => {
     xhr = new XMLHttpRequest();
 
-    xhr.open(method, "https://" + location.hostname + ":8080/game" + url, true);
+    xhr.open(method, "https://" + location.hostname + url, true);
 
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -25,6 +25,11 @@ async function HTTPRequest(method, url, jsonValue) {
     else xhr.send();
   });
   return response;
+}
+
+function logout(){
+  sessionStorage.setItem("username",null);
+  window.location.replace("https://"+location.hostname+"/login-register");
 }
 
 function load_scoreboard(event){

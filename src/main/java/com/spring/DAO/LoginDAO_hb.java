@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.model.Login_hb;
@@ -15,13 +16,9 @@ import com.spring.model.User_hb;
 @Repository
 public class LoginDAO_hb {
 	
-	private static Configuration cfg = new Configuration();;
-	private static SessionFactory sf;
-
 	public boolean login(Login_hb login) {
-		cfg.configure("com/spring/resources/hibernate.cfg.xml");
-		sf = cfg.buildSessionFactory();
-		Session session = sf.openSession();
+		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
 		try {
 			Object obj = session.get(Login_hb.class,login.getUsername());
 			Login_hb s = (Login_hb)obj;

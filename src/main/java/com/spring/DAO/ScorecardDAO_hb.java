@@ -9,8 +9,13 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.model.Scorecard_hb;
@@ -18,19 +23,14 @@ import com.spring.model.Scorecard_hb;
 @Repository
 public class ScorecardDAO_hb {
 	
-	private static Configuration cfg = new Configuration();
-	private static SessionFactory sf;
-	
-	public boolean add(Scorecard_hb scorecard) {
-		cfg.configure("com/spring/resources/hibernate.cfg.xml");
-		sf = cfg.buildSessionFactory();
-		Session session = sf.openSession();
+	public void add(Scorecard_hb scorecard) {
+		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		scorecard.setDateandtime();
 		try {
 			session.save(scorecard);
 			tx.commit();
-			return true;
 		}
 		catch(HibernateException e) {
 			if (tx!=null) tx.rollback();
@@ -39,11 +39,11 @@ public class ScorecardDAO_hb {
 		finally {
 			session.clear();
 		}
-		return false;
 	}
 	
 	public List<Scorecard_hb> getPersonal(String username){
-		Session session = sf.openSession();
+		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
 		List<Scorecard_hb> list = new ArrayList<>();
 		try {
 			Query query = session.createQuery("From Scorecard_hb where username= :uname");
@@ -65,7 +65,8 @@ public class ScorecardDAO_hb {
 	}
 	
 	public List<Scorecard_hb> getGlobal(){
-		Session session = sf.openSession();
+		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		Session session = sessionFactory.openSession();
 		List<Scorecard_hb> list = new ArrayList<>();
 		try {
 			Query query = session.createQuery("From Scorecard_hb");
