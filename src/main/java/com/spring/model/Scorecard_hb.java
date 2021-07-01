@@ -1,6 +1,7 @@
 package com.spring.model;
 
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -46,7 +47,11 @@ public class Scorecard_hb {
 	}
 
 	public void setDate() {
-		this.date = this.dateandtime.toString();
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss Z");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Calcutta"));
+		this.date = dateFormat.format(date);
 	}
 
 	public String getUsername() {
@@ -70,11 +75,7 @@ public class Scorecard_hb {
 	}
 
 	public void setDateandtime() {
-		Calendar calendar = Calendar.getInstance();
-		Date date = calendar.getTime();
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss Z");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Calcutta"));
-		this.dateandtime = new java.sql.Timestamp(date.getTime());
+		this.dateandtime = Timestamp.valueOf(this.date);
 	}
 
 
