@@ -1,8 +1,12 @@
 package com.spring.model;
 
 
-import java.time.LocalDateTime;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
 import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
@@ -42,7 +46,7 @@ public class Scorecard_hb {
 	}
 
 	public void setDate() {
-		this.date = this.dateandtime.toLocalDateTime().toString();
+		this.date = this.dateandtime.toString();
 	}
 
 	public String getUsername() {
@@ -66,7 +70,11 @@ public class Scorecard_hb {
 	}
 
 	public void setDateandtime() {
-		this.dateandtime = java.sql.Timestamp.valueOf(LocalDateTime.now());
+		Calendar calendar = Calendar.getInstance();
+		Date date = calendar.getTime();
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss Z");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Calcutta"));
+		this.dateandtime = new java.sql.Timestamp(date.getTime());
 	}
 
 
