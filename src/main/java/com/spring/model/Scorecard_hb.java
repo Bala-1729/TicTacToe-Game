@@ -1,9 +1,7 @@
 package com.spring.model;
 
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
 import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
@@ -67,8 +65,8 @@ public class Scorecard_hb {
 	}
 
 	public void setDateandtime() {
-		SimpleDateFormat gmtDateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSS");
-        gmtDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Kolkata"));
-		this.dateandtime = new Timestamp(Timestamp.valueOf(gmtDateFormat.format(new Date())).getNanos());
+		this.dateandtime = new java.sql.Timestamp((new Date()).getTime());
 	}
+
+
 }
