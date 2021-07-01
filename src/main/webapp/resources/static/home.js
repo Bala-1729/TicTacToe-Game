@@ -113,12 +113,18 @@ function changeValue(){
     updateValuePlayer1(event.target.id);
     HTTPRequest("POST","/cpu-move",{"array":array,"level":difficulty,"player":'1'}).then((res)=>{
         res = JSON.parse(res);
-        if(res["status"]!="ongoing"){
+        
+        if(res["status"]!="ongoing") {
             let localPlayer = "";
-            if(res["player"]=="2")
+            if(res["status"]=="tie") {
+                localPlayer = "Tie";
+            }
+            if(res["player"]=="2") {
                 localPlayer = "CPU";
-            else
+            }
+            else if(res["player"]=="1") {
                 localPlayer = username;
+        }
             HTTPRequest("POST","/scorecard",{"username":username,"wonby":localPlayer});
         }
         if(res["status"]==="checkmate"){
