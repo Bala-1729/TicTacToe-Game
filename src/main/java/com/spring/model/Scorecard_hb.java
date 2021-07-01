@@ -1,6 +1,7 @@
 package com.spring.model;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -41,7 +42,7 @@ public class Scorecard_hb {
 	}
 
 	public void setDate() {
-		this.date = this.dateandtime.toString();
+		this.date = this.dateandtime.toLocalDateTime().toString();
 	}
 
 	public String getUsername() {
@@ -65,7 +66,7 @@ public class Scorecard_hb {
 	}
 
 	public void setDateandtime() {
-		this.dateandtime = new java.sql.Timestamp((new Date()).getTime());
+		this.dateandtime = java.sql.Timestamp.valueOf(LocalDateTime.now());
 	}
 
 
