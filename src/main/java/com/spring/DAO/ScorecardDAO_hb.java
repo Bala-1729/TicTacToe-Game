@@ -18,18 +18,12 @@ import com.spring.model.Scorecard_hb;
 @Repository
 public class ScorecardDAO_hb {
 	
-	private static Configuration cfg;
+	private static Configuration cfg = new Configuration();
 	private static SessionFactory sf;
-	static {
-		try {
-			cfg = new Configuration();
-			cfg.configure("com/spring/resources/hibernate.cfg.xml");
-			sf = cfg.buildSessionFactory();
-		}
-		catch(HibernateException e) {e.printStackTrace();}
-	}
 	
 	public boolean add(Scorecard_hb scorecard) {
+		cfg.configure("com/spring/resources/hibernate.cfg.xml");
+		sf = cfg.buildSessionFactory();
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
 		scorecard.setDateandtime();

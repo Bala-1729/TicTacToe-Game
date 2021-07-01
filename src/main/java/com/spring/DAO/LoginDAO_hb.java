@@ -15,18 +15,12 @@ import com.spring.model.User_hb;
 @Repository
 public class LoginDAO_hb {
 	
-	private static Configuration cfg;
+	private static Configuration cfg = new Configuration();;
 	private static SessionFactory sf;
-	static {
-		try {
-			cfg = new Configuration();
-			cfg.configure("com/spring/resources/hibernate.cfg.xml");
-			sf = cfg.buildSessionFactory();
-		}
-		catch(HibernateException e) {e.printStackTrace();}
-	}
-	
+
 	public boolean login(Login_hb login) {
+		cfg.configure("com/spring/resources/hibernate.cfg.xml");
+		sf = cfg.buildSessionFactory();
 		Session session = sf.openSession();
 		try {
 			Object obj = session.get(Login_hb.class,login.getUsername());
