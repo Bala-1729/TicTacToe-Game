@@ -49,8 +49,8 @@ public class Scorecard_hb {
 	public void setDate() {
 		Calendar calendar = Calendar.getInstance();
 		Date date = calendar.getTime();
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss Z");
-		dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Calcutta"));
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getDefault().getTimeZone("GMT+5:30"));
 		this.date = dateFormat.format(date);
 	}
 
