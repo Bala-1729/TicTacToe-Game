@@ -14,19 +14,9 @@ import com.spring.model.User_hb;
 @Repository
 public class UserDAO_hb {
 	
-	private static Configuration cfg;
-	private static SessionFactory sf;
-	static {
-		try {
-			cfg = new Configuration();
-			cfg.configure("com/spring/resources/hibernate.cfg.xml");
-			sf = cfg.buildSessionFactory();
-		}
-		catch(HibernateException e) {e.printStackTrace();}
-	}
-	
 	public boolean register(User_hb user) {
-		Session session = sf.openSession();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		try {
 			session.save(user);

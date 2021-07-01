@@ -17,7 +17,7 @@ import com.spring.model.User_hb;
 public class LoginDAO_hb {
 	
 	public boolean login(Login_hb login) {
-		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		try {
 			Object obj = session.get(Login_hb.class,login.getUsername());

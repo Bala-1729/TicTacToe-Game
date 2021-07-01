@@ -24,7 +24,7 @@ import com.spring.model.Scorecard_hb;
 public class ScorecardDAO_hb {
 	
 	public void add(Scorecard_hb scorecard) {
-		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 		scorecard.setDateandtime();
@@ -42,7 +42,7 @@ public class ScorecardDAO_hb {
 	}
 	
 	public List<Scorecard_hb> getPersonal(String username){
-		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		List<Scorecard_hb> list = new ArrayList<>();
 		try {
@@ -65,7 +65,7 @@ public class ScorecardDAO_hb {
 	}
 	
 	public List<Scorecard_hb> getGlobal(){
-		SessionFactory sessionFactory = new Configuration().configure("/com/spring/resources/hibernate.cfg.xml").buildSessionFactory();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		List<Scorecard_hb> list = new ArrayList<>();
 		try {
