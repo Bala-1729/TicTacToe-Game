@@ -46,7 +46,7 @@ public class ScorecardDAO_hb {
 		Session session = sessionFactory.openSession();
 		List<Scorecard_hb> list = new ArrayList<>();
 		try {
-			Query query = session.createQuery("From Scorecard_hb where username= :uname");
+			Query query = session.createQuery("From Scorecard_hb where username= :uname order by dateandtime desc");
 			query.setParameter("uname", username);
 			List l = query.getResultList();
 			for(Object o:l) {
