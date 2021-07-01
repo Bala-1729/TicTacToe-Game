@@ -67,8 +67,8 @@ function openTab(evt, tabName) {
         cell2.innerHTML = res[i]["username"];
       }
       cell3.innerHTML = res[i]["wonby"];
-      cell4.innerHTML = res[i]["date"].split("T")[0];
-      cell5.innerHTML = res[i]["date"].split("T")[1];
+      cell4.innerHTML = res[i]["date"].split(" ")[0];
+      cell5.innerHTML = res[i]["date"].split(" ")[1];
     }
 
     var i, tabcontent, tablinks;
