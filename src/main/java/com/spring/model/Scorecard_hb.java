@@ -3,6 +3,7 @@ package com.spring.model;
 
 import java.sql.Timestamp;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class Scorecard_hb {
 	public void setDate() {
 		Calendar calendar = Calendar.getInstance();
 		Date date = calendar.getTime();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSS");
 		dateFormat.setTimeZone(TimeZone.getDefault().getTimeZone("GMT+5:30"));
 		this.date = dateFormat.format(date);
 	}
@@ -75,7 +76,16 @@ public class Scorecard_hb {
 	}
 
 	public void setDateandtime() {
-		this.dateandtime = Timestamp.valueOf(this.date);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss.SSS");
+        Date parsedDate = null;
+		try {
+			parsedDate = dateFormat.parse(this.date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
+		this.dateandtime = timestamp;
 	}
 
 
