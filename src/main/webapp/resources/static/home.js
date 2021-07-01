@@ -113,6 +113,9 @@ function changeValue(){
     updateValuePlayer1(event.target.id);
     HTTPRequest("POST","/cpu-move",{"array":array,"level":difficulty,"player":'1'}).then((res)=>{
         res = JSON.parse(res);
+        if(res["status"]!="ongoing"){
+            HTTPRequest("POST","/scorecard",{"username":username,"wonby":res["status"]});
+        }
         if(res["status"]==="checkmate"){
             document.querySelectorAll('input').forEach(x => {if(x.id!=res["index1"] && x.id!=res["index2"] && x.id!=res["index3"]) x.disabled=true});
             if(res["player"]=="1")

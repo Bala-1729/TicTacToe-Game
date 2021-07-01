@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+		<property name="hibernate.connection.password">A2s3d4f5!</property>
+		<property name="hibernate.connection.url">jdbc:mariadb://svc-128a4780-a5f0-4b68-b032-973986d0df83-ddl.aws-sydney-1.svc.singlestore.com:3306/tictactoe</property>
+		<property name="hibernate.connection.username">admin</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
+		<mapping class="com.spring.model.User_hb"/>
+		<mapping class="com.spring.model.Login_hb"/>
+		<mapping class="com.spring.model.Scorecard_hb"/>
+	</session-factory>
+</hibernate-configuration>

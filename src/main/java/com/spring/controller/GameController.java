@@ -7,18 +7,24 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.DAO.ScorecardDAO_hb;
 import com.spring.model.Login;
+import com.spring.model.Login_hb;
 import com.spring.model.Move;
 import com.spring.model.Operation;
+import com.spring.model.Scorecard_hb;
 import com.spring.model.Status;
 import com.spring.model.TicTacToe;
 import com.spring.model.User;
+import com.spring.model.User_hb;
 import com.spring.service.AlgorithmService;
 import com.spring.service.LoginService;
 import com.spring.service.OperationsAddService;
@@ -63,7 +69,26 @@ public class GameController {
 		}
 		return status;
 	}
-
+	
+	@PostMapping(value = "/scorecard")
+	public void scorecard(@RequestBody Scorecard_hb scorecard) {
+		ScorecardDAO_hb sc = new ScorecardDAO_hb();
+		sc.add(scorecard);
+	}
+	
+	@PostMapping(value="/scoreboard/global")
+	public List<Scorecard_hb> scoreboard(){
+		List<Scorecard_hb> sc = new ArrayList<>();
+		sc = (new ScorecardDAO_hb()).getGlobal();
+		return sc;
+	}
+	
+	@PostMapping(value="/scoreboard/personal")
+	public List<Scorecard_hb> scoreboard(@RequestBody String username) {
+		List<Scorecard_hb> sc = new ArrayList<>();
+		sc = (new ScorecardDAO_hb()).getPersonal(username.substring(1, username.length()-1));
+		return sc;
+	}
 	@GetMapping(value = "/redo")
 	public List<Operation> redo() {
 		List<Operation> sol = new ArrayList<>();
@@ -101,14 +126,14 @@ public class GameController {
 	}
 
 	@PostMapping(value = "/register")
-	public Map<String, String> registerUser(@RequestBody User user) {
+	public Map<String, String> registerUser(@RequestBody User_hb user) {
 		RegistrationService service = new RegistrationService();
 		Map<String, String> map = service.registerUser(user);
 		return map;
 	}
 	
 	@PostMapping(value="/login")
-	public Map<String, String> loginUser(@RequestBody Login login) {
+	public Map<String, String> loginUser(@RequestBody Login_hb login) {
 		LoginService service = new LoginService();
 		Map<String,String> map = service.login(login);
 		this.stat =login.getStatus();
