@@ -4,7 +4,7 @@ async function HTTPRequest(method, url, jsonValue) {
   const response = await new Promise((resolve, reject) => {
     xhr = new XMLHttpRequest();
 
-    xhr.open(method, "http://" + location.hostname + ":8080/game" + url, true);
+    xhr.open(method, "https://" + location.hostname + ":8080/game" + url, true);
 
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.setRequestHeader("Content-Type", "application/json");
