@@ -119,7 +119,7 @@ function changeValue(){
             if(res["status"]=="tie") {
                 localPlayer = "Tie";
             }
-            if(res["player"]=="2") {
+            else if(res["player"]=="2") {
                 localPlayer = "CPU";
             }
             else if(res["player"]=="1") {
