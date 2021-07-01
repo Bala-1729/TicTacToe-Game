@@ -22,6 +22,10 @@
         <h1 class="heading">Let's Play Tic Tac Toe!</h1>
         <button class="logout_button" onclick="logout()">Log out</button>
     </div>
+    <div class="links">
+        <a href="home" style="text-decoration: none">Home</a>
+        <a href="scoreboard" style="text-decoration: none">Scoreboard</a>
+    </div>
     <div class="container">
       <div onclick="changeValue()" style="margin-top: 50px;">
         <table class="center">

@@ -125,3 +125,12 @@
       padding-bottom: 30px;
       border-radius: 20px;
   }
+
+  .links{
+    padding: 10px;
+    text-align:left;
+    word-spacing: 60px;
+    text-decoration: none;
+    background-color: #DDDDDD;
+    font-size: large;
+  }

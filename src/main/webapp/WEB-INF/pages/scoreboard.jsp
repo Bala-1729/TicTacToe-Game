@@ -6,8 +6,8 @@
   <head>
     <meta charset="ISO-8859-1" />
     <title>Scoreboard</title>
-    <link href="scoreboard.css" rel="stylesheet" />
-    <script src="scoreboard.js" type="text/javascript" defer></script>
+    <link href="<c:url value="/resources/scoreboard.css"/>" rel="stylesheet">
+    <script type="text/javascript" src="<c:url value="/resources/scoreboard.js" />" defer> </script>
   </head>
   <body onload="load_scoreboard(event)">
     <div class="header" style="text-align: center;">
