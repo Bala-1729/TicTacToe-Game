@@ -1,6 +1,7 @@
 package com.spring.model;
 
 
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -65,7 +66,9 @@ public class Scorecard_hb {
 	}
 
 	public void setDateandtime() {
-		this.dateandtime = new java.sql.Timestamp((new Date()).getTime());
+		Calendar date = Calendar.getInstance();
+		long timeInSecs = date.getTimeInMillis() + 19800000l;
+		this.dateandtime = new java.sql.Timestamp((new Date(timeInSecs)).getTime());
 	}
 
 
