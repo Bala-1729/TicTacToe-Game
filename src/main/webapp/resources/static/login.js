@@ -98,8 +98,8 @@ function submit(event){
     
     if(option==="login"){  
         if(username=="" || password==""){
-            alert("Enter necessary details");
             document.getElementById("myModal").style.display="none";
+            alert("Enter necessary details");
             return;
         }
         loginRequest().then((res) => {
@@ -117,6 +117,7 @@ function submit(event){
     }
     else if(option==="register"){
         if(username=="" || password=="" || firstname=="" || lastname=="" || email==""){
+            document.getElementById("myModal").style.display="none";
             alert("Enter necessary details");
             return;
         }
