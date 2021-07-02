@@ -113,6 +113,20 @@ function changeValue(){
     updateValuePlayer1(event.target.id);
     HTTPRequest("POST","/cpu-move",{"array":array,"level":difficulty,"player":'1'}).then((res)=>{
         res = JSON.parse(res);
+        
+        if(res["status"]!="ongoing") {
+            let localPlayer = "";
+            if(res["status"]=="tie") {
+                localPlayer = "Tie";
+            }
+            else if(res["player"]=="2") {
+                localPlayer = "CPU";
+            }
+            else if(res["player"]=="1") {
+                localPlayer = username;
+        }
+            HTTPRequest("POST","/scorecard",{"username":username,"wonby":localPlayer});
+        }
         if(res["status"]==="checkmate"){
             document.querySelectorAll('input').forEach(x => {if(x.id!=res["index1"] && x.id!=res["index2"] && x.id!=res["index3"]) x.disabled=true});
             if(res["player"]=="1")

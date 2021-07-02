@@ -14,11 +14,20 @@ public class ViewController {
 	    return mav;
 	}
 	
+	@GetMapping(value = "/scoreboard")
+	public ModelAndView thirdView()
+	{
+	    ModelAndView mav = new ModelAndView("scoreboard"); 
+	    return mav;
+	}
+	
 	@GetMapping(value = {"", "/", "/login-register"})
 	public ModelAndView secondView()
 	{
 	    ModelAndView mav = new ModelAndView("login"); 
 	    return mav;
 	}
+	
+	
 
 }

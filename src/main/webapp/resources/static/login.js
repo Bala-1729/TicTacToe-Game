@@ -89,6 +89,7 @@ function registerRequest(){
 
 function submit(event){
     event.preventDefault();
+    document.getElementById("myModal").style.display="block";
     firstname=document.getElementById("fname").value;
     lastname=document.getElementById("lname").value;
     username=document.getElementById("uname").value;
@@ -97,6 +98,7 @@ function submit(event){
     
     if(option==="login"){  
         if(username=="" || password==""){
+            document.getElementById("myModal").style.display="none";
             alert("Enter necessary details");
             return;
         }
@@ -107,6 +109,7 @@ function submit(event){
                 window.location.replace("https://"+location.hostname+"/home");
             }
             else{
+                document.getElementById("myModal").style.display="none";
                 alert(res["false"]);
                 location.reload();
             }
@@ -114,6 +117,7 @@ function submit(event){
     }
     else if(option==="register"){
         if(username=="" || password=="" || firstname=="" || lastname=="" || email==""){
+            document.getElementById("myModal").style.display="none";
             alert("Enter necessary details");
             return;
         }
@@ -125,6 +129,7 @@ function submit(event){
                 window.location.replace("https://"+location.hostname+"/login-register");
             }
             else{
+                document.getElementById("myModal").style.display="none";
                 alert(res["false"]);
                 location.reload();
             }
