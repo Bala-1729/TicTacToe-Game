@@ -1,0 +1,126 @@
+.heading {
+  text-align: center;
+}
+
+button{
+    cursor: pointer;
+}
+input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 10px;
+}
+label {
+  margin-right: 10px;
+}
+div.form {
+  display: block;
+  text-align: center;
+}
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.swap,
+.submitButton {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+.swap {
+  margin-top: 100px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 18%;
+  cursor: pointer;
+  
+}
+.login {
+  display: block;
+}
+.register {
+  display: none;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.login_form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 18%;
+  background-color: lightblue;
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.register_form{
+  margin-left: auto;
+  margin-right: auto;
+  width: 18%;
+  background-color: lightblue;
+  padding-bottom: 30px;
+  text-align: center;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.button_before{
+    padding: 10px 20px;
+}
+
+.button_after{
+    padding: 10px 20px;
+    border-top: rgba(10, 10, 10, 0.4);
+    background-color: lightblue;
+    padding-right: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}

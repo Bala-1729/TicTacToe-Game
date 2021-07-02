@@ -39,6 +39,7 @@ function load_scoreboard(event){
   }
     openTab(event, "personal");
     document.getElementById("name").innerHTML=`Hello ${username}!`;
+    document.getElementById("body").style.display="block";
 }
   
 function openTab(evt, tabName) {

@@ -7,7 +7,7 @@
     <link href="<c:url value="/resources/scoreboard.css"/>" rel="stylesheet">
     <script type="text/javascript" src="<c:url value="/resources/scoreboard.js" />" defer> </script>
   </head>
-  <body onload="load_scoreboard(event)">
+  <body  style="display: none;" onload="load_scoreboard(event)">
     <div class="header" style="text-align: center;">
         <h3 id="name" style="display:block;float:left;color: #EDEDED;margin-left: 20px;margin-bottom: 0px;margin-top: 30px;font-size: x-large;"></h3>
         <h1 class="heading">Scoreboard</h1>
