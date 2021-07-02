@@ -22,7 +22,7 @@ public class LoginDAO_hb {
 		try {
 			Object obj = session.get(Login_hb.class,login.getUsername());
 			Login_hb s = (Login_hb)obj;
-			
+			if(s==null) return false;
 			if(s.getUsername().equals(login.getUsername()) && s.getPassword().equals(login.getPassword())) {return true;}
 		}
 		catch(HibernateException e) {

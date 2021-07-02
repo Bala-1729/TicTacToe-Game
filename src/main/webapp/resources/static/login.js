@@ -124,7 +124,6 @@ function submit(event){
         registerRequest().then((res) => {
             res = JSON.parse(res);
             if(res["status"]==="true"){
-                sessionStorage.setItem("username",username);
                 alert("Registration Successfull");
                 window.location.replace("https://"+location.hostname+"/login-register");
             }
