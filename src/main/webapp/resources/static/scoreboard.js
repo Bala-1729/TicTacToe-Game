@@ -33,6 +33,10 @@ function logout(){
 }
 
 function load_scoreboard(event){
+  if(username=="null" || username==null){
+    window.location.replace("https://"+location.hostname+"/login-register");
+    return;
+  }
     openTab(event, "personal");
     document.getElementById("name").innerHTML=`Hello ${username}!`;
 }
